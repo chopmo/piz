@@ -1,5 +1,7 @@
 function Game() {
   this.lastTimestamp = null;
+
+  this.renderer = new Renderer();
 }
 
 Game.prototype.run = function() {
@@ -13,9 +15,17 @@ Game.prototype.requestNextFrame = function() {
 Game.prototype.tick = function(timestamp) {
   var timeDelta = this.lastTimestamp ? timestamp - this.lastTimestamp : 0;
 
-  console.log(timeDelta);
+  this.update(timeDelta);
 
   this.lastTimestamp = timestamp;
   this.requestNextFrame();
+};
+
+Game.prototype.update = function(timeDelta) {
+  this.renderer.render();
+};
+
+Game.prototype.getCanvas = function() {
+  return this.renderer.canvas;
 };
 
