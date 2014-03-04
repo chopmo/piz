@@ -1,7 +1,9 @@
 function Game() {
   this.lastTimestamp = null;
-
-  this.renderer = new Renderer();
+  this.circles = [
+    new Circle(50, 50, 30, "#F00")
+  ];
+  this.renderer = new Renderer(this.circles);
 }
 
 Game.prototype.run = function() {
@@ -28,4 +30,3 @@ Game.prototype.update = function(timeDelta) {
 Game.prototype.getCanvas = function() {
   return this.renderer.canvas;
 };
-

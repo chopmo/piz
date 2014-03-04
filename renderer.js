@@ -1,4 +1,5 @@
-function Renderer() {
+function Renderer(circles) {
+  this.circles = circles;
   this.canvas = document.createElement("canvas");
   this.canvas.width = 600;
   this.canvas.height = 400;
@@ -8,6 +9,27 @@ function Renderer() {
 
 Renderer.prototype.render = function() {
   // console.log("rendering");
-  this.context.fillStyle = "#000";
+  this.clear();
+  this.drawCircles();
+};
+
+Renderer.prototype.clear = function() {
+  this.context.fillStyle = "#FFF";
   this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+}
+
+Renderer.prototype.drawCircles = function() {
+  this.circles.forEach(function(circle) {
+    var ctx = this.context;
+    ctx.fillStyle = "#F53";
+    ctx.beginPath();
+    ctx.arc(circle.x,
+                     circle.y,
+                     circle.size,
+                     0,
+                     2 * Math.PI);
+
+    ctx.fill();
+
+  }.bind(this));
 }
