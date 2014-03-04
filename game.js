@@ -4,6 +4,7 @@ function Game() {
     new Circle(50, 50, 30, "#F00")
   ];
   this.renderer = new Renderer(this.circles);
+  this.movement = new Movement(this.circles);
 }
 
 Game.prototype.run = function() {
@@ -24,6 +25,7 @@ Game.prototype.tick = function(timestamp) {
 };
 
 Game.prototype.update = function(timeDelta) {
+  this.movement.move(timeDelta);
   this.renderer.render();
 };
 
