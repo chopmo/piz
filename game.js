@@ -1,10 +1,12 @@
 function Game() {
   this.lastTimestamp = null;
   this.circles = [
-    new Circle(50, 50, 30, "#F00")
+    new Circle(300, 200, 30, "#F00")
   ];
-  this.renderer = new Renderer(this.circles);
-  this.movement = new Movement(this.circles);
+  this.renderer        = new Renderer(this.circles);
+  this.movement        = new Movement(this.circles);
+  this.keyboard        = new Keyboard();
+  this.inputController = new InputController(this.circles[0], this.keyboard);
 }
 
 Game.prototype.run = function() {
@@ -25,6 +27,7 @@ Game.prototype.tick = function(timestamp) {
 };
 
 Game.prototype.update = function(timeDelta) {
+  this.inputController.update(timeDelta);
   this.movement.move(timeDelta);
   this.renderer.render();
 };

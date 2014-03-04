@@ -35,8 +35,8 @@
   };
 
   function Keyboard() {
-    document.addEventListener('keydown', this.pressedCallback);
-    document.addEventListener('keyup', this.releasedCallback);
+    document.addEventListener('keydown', this.keyPressed.bind(this));
+    document.addEventListener('keyup', this.keyReleased.bind(this));
     this.keysPressed = {};
   }
 
@@ -52,9 +52,6 @@
       if(keyName && this.keysPressed[keyName]) {
         delete this.keysPressed[keyName];
       }
-    },
-    anyKeysPressed: function() {
-      return Object.keys(this.keysPressed).length !== 0;
     }
   };
 
