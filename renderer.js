@@ -21,13 +21,13 @@ Renderer.prototype.clear = function() {
 Renderer.prototype.drawCircles = function() {
   this.circles.forEach(function(circle) {
     var ctx = this.context;
-    ctx.fillStyle = "#F53";
+    ctx.fillStyle = "#F30";
     ctx.beginPath();
     ctx.arc(circle.x,
-                     circle.y,
-                     circle.size,
-                     0,
-                     2 * Math.PI);
+            circle.y,
+            circle.size,
+            0,
+            2 * Math.PI);
 
     ctx.fill();
 
