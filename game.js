@@ -1,13 +1,17 @@
 function Game() {
   this.lastTimestamp = null;
-  this.circles = [
-    new Circle(300, 200, 30, "#F00")
-  ];
+  this.circles         = this.createCircles();
   this.renderer        = new Renderer(this.circles);
   this.movement        = new Movement(this.circles);
   this.keyboard        = new Keyboard();
   this.inputController = new InputController(this.circles[0], this.keyboard);
 }
+
+Game.prototype.createCircles = function() {
+  var pos = new Vector(300, 200);
+  var circle = new Circle(pos, 30, "#F00");
+  return [circle];
+};
 
 Game.prototype.run = function() {
   this.requestNextFrame();

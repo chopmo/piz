@@ -1,6 +1,5 @@
-function Circle(x, y, size, color) {
-  this.x     = x;
-  this.y     = y;
+function Circle(pos, size, color) {
+  this.pos   = pos;
   this.size  = size;
   this.color = color;
 };

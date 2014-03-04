@@ -23,8 +23,8 @@ Renderer.prototype.drawCircles = function() {
     var ctx = this.context;
     ctx.fillStyle = "#F30";
     ctx.beginPath();
-    ctx.arc(circle.x,
-            circle.y,
+    ctx.arc(circle.pos.x,
+            circle.pos.y,
             circle.size,
             0,
             2 * Math.PI);
