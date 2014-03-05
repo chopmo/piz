@@ -20,7 +20,7 @@ Renderer.prototype.clear = function() {
 Renderer.prototype.drawCircles = function() {
   this.circles.forEach(function(circle) {
     var ctx = this.context;
-    ctx.fillStyle = "#F30";
+    ctx.fillStyle = circle.color;
     ctx.beginPath();
     ctx.arc(circle.pos.x,
             circle.pos.y,
