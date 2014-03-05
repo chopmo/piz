@@ -5,7 +5,7 @@ function Movement(circles, logger) {
   this.stopMotionThreshold = 0.05
 }
 
-Movement.prototype.move = function(timeDelta) {
+Movement.prototype.update = function(timeDelta) {
   this.circles.forEach(function(circle) {
     this.applyDrag(circle);
     this.moveObject(circle);

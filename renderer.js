@@ -7,7 +7,7 @@ function Renderer(circles) {
   this.context = this.canvas.getContext("2d");
 }
 
-Renderer.prototype.render = function() {
+Renderer.prototype.update = function(timeDelta) {
   this.clear();
   this.drawCircles();
 };

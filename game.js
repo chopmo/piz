@@ -1,11 +1,20 @@
 function Game() {
   this.logger          = new Logger();
   this.lastTimestamp   = null;
+
   this.circles         = this.createCircles();
-  this.renderer        = new Renderer(this.circles);
-  this.movement        = new Movement(this.circles, this.logger);
+  this.playerCircle    = this.circles[0];
+
   this.keyboard        = new Keyboard();
-  this.inputController = new InputController(this.circles[0], this.keyboard);
+  this.inputController = new InputController(this.playerCircle, new Keyboard());
+  this.movement        = new Movement(this.circles, this.logger);
+  this.renderer        = new Renderer(this.circles);
+
+  this.procesors = [
+    this.inputController,
+    this.movement,
+    this.renderer
+  ]
 }
 
 Game.prototype.createCircles = function() {
@@ -33,9 +42,9 @@ Game.prototype.tick = function(timestamp) {
 };
 
 Game.prototype.update = function(timeDelta) {
-  this.inputController.update(timeDelta);
-  this.movement.move(timeDelta);
-  this.renderer.render();
+  this.procesors.forEach(function(processor) {
+    processor.update(timeDelta);
+  });
 };
 
 Game.prototype.getCanvas = function() {
