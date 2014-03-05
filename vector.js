@@ -30,3 +30,8 @@ Vector.prototype.add = function(other) {
   this.x += other.x;
   this.y += other.y;
 };
+
+Vector.prototype.reset = function() {
+  this.x = 0;
+  this.y = 0;
+};
