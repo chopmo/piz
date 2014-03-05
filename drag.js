@@ -11,10 +11,5 @@ Drag.prototype.update = function(timeDelta) {
 };
 
 Drag.prototype.applyDrag = function(circle) {
-  var velocity = circle.velocity.getLength();
-  if(velocity == 0) {
-    return;
-  }
-
   circle.velocity.multiply(1 - this.factor);
 };
