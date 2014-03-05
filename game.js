@@ -1,8 +1,9 @@
 function Game() {
-  this.lastTimestamp = null;
+  this.logger          = new Logger();
+  this.lastTimestamp   = null;
   this.circles         = this.createCircles();
   this.renderer        = new Renderer(this.circles);
-  this.movement        = new Movement(this.circles);
+  this.movement        = new Movement(this.circles, this.logger);
   this.keyboard        = new Keyboard();
   this.inputController = new InputController(this.circles[0], this.keyboard);
 }

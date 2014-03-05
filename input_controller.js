@@ -5,9 +5,16 @@ function InputController(circle, keyboard) {
 
 InputController.prototype.update = function(timeDelta) {
   var keys = this.keyboard.keysPressed;
-  if(keys.d) { this.circle.pos.x += 1; }
-  if(keys.a) { this.circle.pos.x -= 1; }
-  if(keys.w) { this.circle.pos.y -= 1; }
-  if(keys.s) { this.circle.pos.y += 1; }
+  var acceleration = new Vector(0, 0);
+
+  if(keys.d) { acceleration.x += 1; }
+  if(keys.a) { acceleration.x -= 1; }
+  if(keys.w) { acceleration.y -= 1; }
+  if(keys.s) { acceleration.y += 1; }
+
+  acceleration.normalize();
+  acceleration.multiply(timeDelta * 0.01);
+
+  this.circle.accelerate(acceleration);
 };
 
