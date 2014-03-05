@@ -1,0 +1,2 @@
+#!/bin/sh
+ssh -A jtj@diva.chopmo.dk "cd /var/www/root/piz; git pull"
