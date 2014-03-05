@@ -12,13 +12,25 @@ Repulsion.prototype.update = function(timeDelta) {
       if(thisMagnet == otherMagnet) return;
 
       var offset = otherMagnet.pos.subtract(thisMagnet.pos);
-      if(offset.getLength() < this.distanceThreshold) {
-        var acceleration = offset.inverse();
-        acceleration.multiply(this.strength);
-        this.logger.periodicLog(500, acceleration);
-        otherMagnet.accelerate(acceleration)
-      }
+      var push = this.getPush(offset);
+
+      otherMagnet.accelerate(push);
+
     }.bind(this));
   }.bind(this));
+};
+
+
+Repulsion.prototype.getPush = function(offset) {
+  if(offset.getLength() > this.distanceThreshold) {
+    return Vector.zeroVector();
+  }
+
+  var force = (1 / offset.getLength()) * this.strength;
+  var push = offset.clone();
+  push.normalize();
+  push.multiply(force);
+
+  return push;
 };
 

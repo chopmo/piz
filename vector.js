@@ -3,6 +3,10 @@ function Vector(x, y) {
   this.y = y;
 }
 
+Vector.prototype.clone = function() {
+  return new Vector(this.x, this.y);
+};
+
 Vector.prototype.getLength = function() {
   return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2))
 };
@@ -40,9 +44,7 @@ Vector.prototype.subtract = function(other) {
   return new Vector(this.x - other.x, this.y - other.y)
 };
 
-Vector.prototype.inverse = function() {
-  var x = this.x == 0 ? 0 : (1 / this.x);
-  var y = this.y == 0 ? 0 : (1 / this.y);
-
-  return new Vector(x, y);
+Vector.zeroVector = function() {
+  return new Vector(0, 0);
 };
+
