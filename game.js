@@ -9,12 +9,14 @@ function Game() {
   this.inputController = new InputController(this.playerCircle, new Keyboard());
   this.movement        = new Movement(this.circles, this.logger);
   this.drag            = new Drag(this.circles, this.logger);
+  this.repulsion       = new Repulsion(this.circles, this.logger);
   this.renderer        = new Renderer(this.circles);
 
   this.procesors = [
     this.inputController,
     this.movement,
     this.drag,
+    this.repulsion,
     this.renderer
   ]
 }

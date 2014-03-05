@@ -1,8 +1,8 @@
 function Renderer(circles) {
   this.circles = circles;
   this.canvas = document.createElement("canvas");
-  this.canvas.width = 600;
-  this.canvas.height = 400;
+  this.canvas.width = 800;
+  this.canvas.height = 600;
 
   this.context = this.canvas.getContext("2d");
 }
@@ -13,7 +13,7 @@ Renderer.prototype.update = function(timeDelta) {
 };
 
 Renderer.prototype.clear = function() {
-  this.context.fillStyle = "#FFF";
+  this.context.fillStyle = "#EEE";
   this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
 }
 
