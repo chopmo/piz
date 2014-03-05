@@ -14,11 +14,13 @@ Vector.prototype.getLength = function() {
 Vector.prototype.divide = function(divident) {
   this.x = this.x / divident;
   this.y = this.y / divident;
+  return this;
 };
 
 Vector.prototype.multiply = function(factor) {
   this.x = this.x * factor;
   this.y = this.y * factor;
+  return this;
 };
 
 Vector.prototype.normalize = function() {
@@ -28,20 +30,25 @@ Vector.prototype.normalize = function() {
   }
 
   this.divide(this.getLength());
+  return this;
 };
 
 Vector.prototype.add = function(other) {
   this.x += other.x;
   this.y += other.y;
+  return this;
 };
 
 Vector.prototype.reset = function() {
   this.x = 0;
   this.y = 0;
+  return this;
 };
 
 Vector.prototype.subtract = function(other) {
-  return new Vector(this.x - other.x, this.y - other.y)
+  this.x -= other.x;
+  this.y -= other.y;
+  return this;
 };
 
 Vector.zeroVector = function() {
