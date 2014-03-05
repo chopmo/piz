@@ -3,7 +3,7 @@ function Repulsion(circles, logger) {
   this.logger = logger;
 
   this.distanceThreshold = 200;
-  this.strength = 3;
+  this.strength = 120;
 }
 
 Repulsion.prototype.update = function(timeDelta) {
@@ -13,7 +13,6 @@ Repulsion.prototype.update = function(timeDelta) {
 
       var offset = otherMagnet.pos.clone().subtract(thisMagnet.pos);
       var push = this.getPush(offset);
-
       otherMagnet.accelerate(push);
 
     }.bind(this));
@@ -26,7 +25,8 @@ Repulsion.prototype.getPush = function(offset) {
     return Vector.zeroVector();
   }
 
-  var force = (1 / offset.getLength()) * this.strength;
+  var dist = offset.getLength();
+  var force = (1 / Math.pow(dist, 1.7)) * this.strength;
 
   return offset.clone().normalize().multiply(force);
 };
