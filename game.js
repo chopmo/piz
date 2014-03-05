@@ -35,7 +35,7 @@ Game.prototype.createNpcCircles = function() {
   for(i = 0; i < 10; i++) {
     var x     = Math.random() * this.width;
     var y     = Math.random() * this.height;
-    var size  = Math.random() * 20 + 30;
+    var size  = Math.random() * 30 + 20;
     var color = this.npcColor;
     circles.push(new Circle(new Vector(x, y), size, color));
   }
