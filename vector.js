@@ -35,3 +35,14 @@ Vector.prototype.reset = function() {
   this.x = 0;
   this.y = 0;
 };
+
+Vector.prototype.subtract = function(other) {
+  return new Vector(this.x - other.x, this.y - other.y)
+};
+
+Vector.prototype.inverse = function() {
+  var x = this.x == 0 ? 0 : (1 / this.x);
+  var y = this.y == 0 ? 0 : (1 / this.y);
+
+  return new Vector(x, y);
+};
