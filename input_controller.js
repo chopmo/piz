@@ -13,7 +13,7 @@ InputController.prototype.update = function(timeDelta) {
   if(keys.s) { acceleration.y += 1; }
 
   acceleration.normalize();
-  acceleration.multiply(timeDelta * 0.01);
+  acceleration.multiply(timeDelta * 0.03);
 
   this.circle.accelerate(acceleration);
 };

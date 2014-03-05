@@ -8,7 +8,6 @@ function Renderer(circles) {
 }
 
 Renderer.prototype.render = function() {
-  // console.log("rendering");
   this.clear();
   this.drawCircles();
 };

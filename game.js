@@ -9,8 +9,8 @@ function Game() {
 }
 
 Game.prototype.createCircles = function() {
-  var pos = new Vector(300, 200);
-  var circle = new Circle(pos, 30, "#F00");
+  var pos = new Vector(400, 200);
+  var circle = new Circle(pos, 50, "#AD0021");
   return [circle];
 };
 
