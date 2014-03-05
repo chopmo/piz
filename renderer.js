@@ -1,9 +1,8 @@
-function Renderer(circles) {
+function Renderer(circles, width, height) {
   this.circles = circles;
   this.canvas = document.createElement("canvas");
-  this.canvas.width = 800;
-  this.canvas.height = 600;
-
+  this.canvas.width = width;
+  this.canvas.height = height;
   this.context = this.canvas.getContext("2d");
 }
 
