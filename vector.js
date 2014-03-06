@@ -26,7 +26,7 @@ Vector.prototype.multiply = function(factor) {
 Vector.prototype.normalize = function() {
   var len = this.getLength();
   if(len == 0) {
-    return;
+    return this;
   }
 
   this.divide(this.getLength());
